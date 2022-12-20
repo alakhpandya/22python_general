@@ -18,7 +18,8 @@ print("Alpha said Beta 'Gamma is teasing Delta but Gamma", 'says "I', "didn't te
 Escape sequence characters:
 \
 \n	new line character
-\t	tab character	
+\t	tab character
+\b	backspace	
 """
 
 print('Alpha said Beta \'Gamma is teasing Delta\'')
@@ -27,7 +28,7 @@ print('Alpha said Beta \'Gamma is teasing Delta\'')
 3. Location of your Python interpreter is at: "C:\new folder\temp\python\"
 4. In Python, we use '\t' to give a "tab". But, if we want Python to ignore it, we type "\\t"
 """
-
+print("Python is fun\b\b\bR")
 
 
 
