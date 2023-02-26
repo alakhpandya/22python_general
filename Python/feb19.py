@@ -81,7 +81,7 @@ myList.append("z").sort()
 print(myList)
 """
 
-# Remaining Collections:
+# Remaining Collections/Iterables:
 """
 Mutable     Ordered     list
 Immutable   Ordered     tuple
