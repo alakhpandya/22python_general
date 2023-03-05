@@ -1,12 +1,12 @@
 # Remaining Collections/Iterables:
 """
-Mutable     Ordered     list
-Immutable   Ordered     tuple
-Mutable     Unoredered  set
+Mutable     Ordered     list        [ ]
+Immutable   Ordered     tuple       ( )
+Mutable     Unoredered  set         { }
 Mutable     Ordered     frozenset
 
-string: Immutable & Ordered Collection of characters
-dictionary: Mutable & Unordered collection of key-value pairs
+string: Immutable & Ordered Collection of characters            " "
+dictionary: Mutable & Unordered collection of key-value pairs   { }
 """
 
 # Tuples: Immutable & Ordered collections of members
