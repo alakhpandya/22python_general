@@ -150,6 +150,7 @@ Functions Examples:
     nth term = a + (n-1)d
 
 5. Develop a program that uses a function to find nth term of an geometric progression whose first term is 'a' & common ratio is 'r'.
+formula: a * r^(n-1)
 
 6. Make a function that checks whether the given number is a perfect number or not. Make a program that uses this function to print all the perfect numbers between a given range. A perfect number is one whose all factors (excluding itself), when added up, you get the number itself. eg, factors of 6: 1, 2, 3, 6 & 1+2+3 = 6. so 6 is a perfect number.
 
@@ -169,3 +170,22 @@ User can:-
 ◆LOGOUT will exit the user from the program
 You should use these functions in your program: login(), deposit(), withdraw(), checkBalance()
 """
+
+def perfectCheck(n):
+    sum = 0
+    for i in range(1, n):
+        if n % i == 0:
+            sum += i
+    if sum == n:
+        # print("Perfect")
+        return True
+    else:
+        # print("Not Perfect")
+        return False
+
+a = int(input("Enter two integers:\n"))
+b = int(input())
+print(f"Perfect numbers between {a} and {b} are:")
+for x in range(a, b+1):
+    if perfectCheck(x) == True:
+        print(x)
