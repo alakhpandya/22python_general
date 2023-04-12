@@ -1,2 +1,1 @@
-erage(a, b):
-    re
+c
