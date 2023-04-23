@@ -134,8 +134,6 @@ t = int(input())
 print(avg(p, q, r, s, t))
 """
 
-# Scope of a variable, local variables, global variables & global keyword, lambda functions, some useful built in functions, Recursive functions
-
 # HW:
 """
 1. Problem Description: Given a name A as input. Print "Hello A", where A is the name in input.
