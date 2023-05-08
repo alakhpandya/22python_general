@@ -76,6 +76,7 @@ print(list(zip(roll_no, names, percentage)))
 """
 
 # map
+"""
 def factorial(n):
     f = 1
     for i in range(1, n+1):
@@ -83,7 +84,7 @@ def factorial(n):
     return f
 
 numbers = [2,3,4,5,6,7,8,9]
-
+"""
 # use the above function and create another list named 'factorials' that contains factorials of all the members of list 'numbers'
 # Write your code here
 
@@ -141,13 +142,13 @@ numbers = [2,3,4,5,6,7,8,9]
     Note: The total amount is equally splitted in all bills. The number of bills should be an integer value.
 
     Input Format:
-    The first line contains a real number N denoting the total budget. The second line contains an integer M denoting the value of a single bil11
+    The first line contains a real number N denoting the total budget. The second line contains an integer M denoting the value of a single bill
 
     Output Format:
     Print in a single line denoting the total number of bills that can fit in the total budget.
 
     Problem Constraints:
-    1 < N Cx 10000 1 C# M xx 100
+    1 < N <= 10000; 1 <= M <= 100
 
     Examples
     Input:
@@ -239,7 +240,7 @@ numbers = [2,3,4,5,6,7,8,9]
     Output:
     7
     8
-
+    
     Example Explanation:
     The greatest integer that is less than or equal to 7.64 is clearly 7.
     The smallest integer that is greater than or equal to 7.64 is clearly 8.
@@ -313,7 +314,7 @@ numbers = [2,3,4,5,6,7,8,9]
 
 8.Are the weights balanced?
     Problem Description:
-    A weighing machine has two arms, a left arm, and a right arm. On both sides of the weighting machine we can put in weights and if both of those weights are equal, the arms of the machine will hang equally in the air, with none of them hanging below the other. This is hard to observe visually hence you are asked to write a program that takes in two weight values as input and outputs True if they will leave the machine balanced and False if they will leave the machine unbalanced.
+    A weighing machine has two arms, a left arm, and a right arm. On both sides of the weighing machine we can put in weights and if both of those weights are equal, the arms of the machine will hang equally in the air, with none of them hanging below the other. This is hard to observe visually hence you are asked to write a program that takes in two weight values as input and outputs True if they will leave the machine balanced and False if they will leave the machine unbalanced.
 
     Input Format:
     The input will contain two lines denoting the weight values on the left and right arms of the machine
@@ -343,3 +344,8 @@ numbers = [2,3,4,5,6,7,8,9]
     b.	True
     c.	False
 """
+# n = int(input())    # 100
+# print(n % 2 == 0)
+
+# print(3 ** 2 ** 0)
+
