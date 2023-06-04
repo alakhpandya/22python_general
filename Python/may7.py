@@ -1,5 +1,5 @@
 # map
-"""
+
 def factorial(n):
     f = 1
     for i in range(1, n+1):
@@ -57,5 +57,5 @@ for transaction in transactions:
     total = total + abs(transaction)
 
 print(total)
-"""
+
 # Next Class: Recursive functions, organizing our code in modules & packages

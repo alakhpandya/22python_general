@@ -23,3 +23,18 @@ def recursiveFact(n):
         return 1
     else:
         return n * recursiveFact(n - 1)
+    
+PI = 3.14
+
+class Royal():
+    pass
+
+# print(__name__)
+if __name__ == "__main__":
+    a = int(input())
+    d = int(input())
+    n = int(input())
+    print("factorial =", recursiveFact(a))
+    print("AP: ", recursiveAP(a, d, n))
+    print("GP: ", recursiveGP(a, d, n))
+    print("Fibonacci: ", fibo(n))
