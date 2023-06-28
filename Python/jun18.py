@@ -1,4 +1,3 @@
-
 class Car:
     seating_capacity = 5        # class variable
     allCars = []
