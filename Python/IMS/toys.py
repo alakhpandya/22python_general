@@ -2,6 +2,7 @@ from products import Products
 
 class Toys(Products):
     category = "Toy"
+    category_code = "T"
 
     def __init__(self, name, cost_price, mrp, quantity, age_group):
         super().__init__(name, cost_price, mrp, quantity)

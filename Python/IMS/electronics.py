@@ -2,6 +2,7 @@ from products import Products
 
 class Electronics(Products):
     category = "Electronics"
+    category_code = "E"
 
     def __init__(self, name, cost_price, mrp, quantity, power_option):
         super().__init__(name, cost_price, mrp, quantity)

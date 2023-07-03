@@ -2,6 +2,7 @@ from products import Products
 
 class Grocery(Products):
     category = "Grocery"
+    category_code = "G"
 
     def __init__(self, name, cost_price, mrp, quantity, exp_date):
         super().__init__(name, cost_price, mrp, quantity)
