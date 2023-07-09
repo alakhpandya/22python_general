@@ -1,3 +1,5 @@
+import datetime
+
 class Products():
     all_products = []
     country = "India"
@@ -25,7 +27,11 @@ class Products():
         C: category_code (E/G/F/T/C)
         XXXX: Index number in the list + 100
         """
-        pass
+        purchase_year = datetime.datetime.today().year
+        purchase_month = datetime.datetime.today().month
+        index = str(len(Products.all_products) + 100)
+        self.barcode = str(purchase_year)+str(purchase_month)+ self.category_code + index
+        # barcode: 202307E102
 
     def show_details(self):
         print(f"------------- Details of {self.name} -------------")
@@ -33,6 +39,7 @@ class Products():
         print("Cost price:", self.cost_price)
         print("MRP:", self.mrp)
         print("Stock:", self.quantity)
+        print("Barcode:", self.barcode)
 
     @staticmethod
     def addNewItem():
@@ -42,6 +49,24 @@ class Products():
         mrp = float(input("MRP: "))
         quantity = int(input("Quantity: "))
         return name, cost_price, mrp, quantity
+    
+    @staticmethod
+    def showInventory():
+        print("SrNo\t\tItem Name")
+        for item in Products.all_products:
+            print(f"{item.barcode}\t{item.name}")
+        barcode = input("Enter barcode no: ")
+        index = int(barcode[-3:]) - 101
+        return index
+
+    def editDetails(self):
+        print("Enter new details (Press 'Enter' to keep old detail):")
+        self.name = input("Item name:")
+        self.category = input("Category:")
+        self.cost_price = float(input("Cost price:"))
+        self.mrp = float(input("MRP:"))
+        self.quantity = int(input("Stock:"))
+        self.barcode = input("Barcode:")
 
 if __name__ == '__main__' :
     # p1 = Products("1234", 35.5, 50.5, 10)

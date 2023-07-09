@@ -2,16 +2,17 @@
 generate bill
 """
 # DRY: Do not Repeat Yourself
+from products import Products
 from electronics import Electronics
 from grocery import Grocery
 from furniture import Furniture
 from toys import Toys
 from cloths import Cloths
 
-e1 = Electronics("Asus TUF F15", 56000, 86000, 10, "Rechargable Battery")
+e1 = Electronics("Asus TUF F15", 56000.0, 86000, 10, "Rechargable Battery")
 # e1.show_details()
 
-g1 = Grocery("Kissan Ketchup", 90, 135, 50, "12/24")
+g1 = Grocery("Kissan Ketchup", 90.0, 135, 50, "12/24")
 # g1.show_details()
 
 while True:
@@ -39,8 +40,24 @@ while True:
         }
         lookup[item_type]()
 
+    elif op == 2:
+        pass
+
+    elif op == 3:
+        index = Products.showInventory()
+        Products.all_products[index].show_details()
+
+    elif op == 4:
+        index = Products.showInventory()
+        Products.all_products[index].editDetails()
+
+    elif op == 5:
+        pass
+
     elif op == 9:
         break
 
+    else:
+        print("Invalid operation, please try again...")
 
 # Next Class: Abstraction, Encapsulation, Polymorphism & remaining menu options
