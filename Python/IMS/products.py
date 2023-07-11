@@ -1,4 +1,10 @@
 import datetime
+# import abc      # abstract base classes
+"""
+Abstraction:
+Purpose 1: To disallow object creation in a particular class
+Purpose 2: To make some of the methods compulsory to all the child classes to have
+"""
 
 class Products():
     all_products = []
@@ -30,7 +36,7 @@ class Products():
         purchase_year = datetime.datetime.today().year
         purchase_month = datetime.datetime.today().month
         index = str(len(Products.all_products) + 100)
-        self.barcode = str(purchase_year)+str(purchase_month)+ self.category_code + index
+        self.barcode = str(purchase_year)+str(purchase_month).zfill(2)+ self.category_code + index
         # barcode: 202307E102
 
     def show_details(self):
@@ -61,12 +67,30 @@ class Products():
 
     def editDetails(self):
         print("Enter new details (Press 'Enter' to keep old detail):")
-        self.name = input("Item name:")
-        self.category = input("Category:")
-        self.cost_price = float(input("Cost price:"))
-        self.mrp = float(input("MRP:"))
-        self.quantity = int(input("Stock:"))
-        self.barcode = input("Barcode:")
+        print("Field\tOld Value\tNew Value".expandtabs(20))
+        name = input(f"Name\t{self.name}:\t".expandtabs(20))
+        if name != "": self.name = name
+
+        category = input(f"Category\t{self.category}:\t".expandtabs(20))
+        if category != "": 
+            print("Sorry, cannot change category from here. You need to delete this object and create a new one in that category.")
+        
+        cost_price = input(f"Cost price\t{self.cost_price}:\t".expandtabs(20))
+        if cost_price != "": self.cost_price = float(cost_price)
+
+        mrp = input(f"MRP\t{self.mrp}:\t".expandtabs(20))
+        if mrp != "": self.mrp = float(mrp)
+
+        quantity = input(f"Stock\t{self.quantity}:\t".expandtabs(20))
+        if quantity != "": self.quantity = int(quantity)
+
+        month = input(f"Month\t{self.barcode[4 : 6]}:\t".expandtabs(20)).zfill(2)
+        if month != "":
+            self.barcode = self.barcode[ : 4] + month + self.barcode[6 : ]
+        year = input(f"Year\t{self.barcode[ : 4]}:\t".expandtabs(20))
+
+        if year != "":
+            self.barcode = year + self.barcode[4 : ]
 
 if __name__ == '__main__' :
     # p1 = Products("1234", 35.5, 50.5, 10)

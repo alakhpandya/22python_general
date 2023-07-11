@@ -20,3 +20,8 @@ class Electronics(Products):
         name, cost_price, mrp, quantity = super().addNewItem()
         power_option = input("Power option: ")
         return cls(name, cost_price, mrp, quantity, power_option)
+
+    def editDetails(self):
+        super().editDetails()
+        power = input(f"Power\t{self.power_option}:\t")
+        if power != "": self.power_option = power
