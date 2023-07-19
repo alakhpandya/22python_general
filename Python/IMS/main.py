@@ -9,10 +9,10 @@ from furniture import Furniture
 from toys import Toys
 from cloths import Cloths
 
-e1 = Electronics("Asus TUF F15", 56000.0, 86000, 10, "Rechargable Battery")
+# e1 = Electronics("Asus TUF F15", 56000.0, 86000, 10, "Rechargable Battery")
 # e1.show_details()
 
-g1 = Grocery("Kissan Ketchup", 90.0, 135, 50, "12/24")
+# g1 = Grocery("Kissan Ketchup", 90.0, 135, 50, "12/24")
 # g1.show_details()
 
 while True:

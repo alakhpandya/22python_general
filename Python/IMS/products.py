@@ -1,23 +1,25 @@
 import datetime
-# import abc      # abstract base classes
+from abc import ABC, abstractmethod      # abc: abstract base classes, ABC: Abstract Base Class
 """
 Abstraction:
 Purpose 1: To disallow object creation in a particular class
 Purpose 2: To make some of the methods compulsory to all the child classes to have
 """
 
-class Products():
+class Products(ABC):
     all_products = []
     country = "India"
+    # category_code = "P"
+    # category = "Product"
 
     def __init__(self, name:str, cost_price, mrp, quantity:int):
         assert isinstance(name, str), "Name should be a string..."
         self.name = name
 
         assert isinstance(cost_price, float), "Cost Price should be a Float..."
-        self.cost_price = cost_price
+        self.__cost_price = cost_price              # Private Variable
         assert isinstance(mrp, float) or isinstance(mrp, int), "MRP should be a Float..."
-        self.mrp = mrp
+        self._mrp = mrp                             # Protected Variable
         
         assert isinstance(quantity, int), "Qunatity should be integer."
         assert quantity > 0, "Quantity should be greater than 0!"
@@ -39,15 +41,17 @@ class Products():
         self.barcode = str(purchase_year)+str(purchase_month).zfill(2)+ self.category_code + index
         # barcode: 202307E102
 
-    def show_details(self):
-        print(f"------------- Details of {self.name} -------------")
-        print("Category:", self.category)
-        print("Cost price:", self.cost_price)
-        print("MRP:", self.mrp)
-        print("Stock:", self.quantity)
-        print("Barcode:", self.barcode)
+    # @abstractmethod
+    # def show_details(self):
+    #     print(f"------------- Details of {self.name} -------------")
+    #     print("Category:", self.category)
+    #     print("Cost price:", self.__cost_price)     # private variable
+    #     print("MRP:", self._mrp)                    # protected variable
+    #     print("Stock:", self.quantity)
+    #     print("Barcode:", self.barcode)
 
     @staticmethod
+    @abstractmethod
     def addNewItem():
         print("Enter the following details:")
         name = input("Name: ")
