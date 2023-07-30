@@ -24,8 +24,15 @@ class Products(ABC):
         assert isinstance(quantity, int), "Qunatity should be integer."
         assert quantity > 0, "Quantity should be greater than 0!"
         self.quantity = quantity
-        Products.all_products.append(self)
+        if None in self.all_products:
+            index = self.all_products.index(None)
+            Products.all_products[index] = self
+        else:
+            Products.all_products.append(self)
         self.generateBarcode()
+
+
+
 
     def generateBarcode(self):
         # Format: YYYYMMCXXXX
@@ -37,7 +44,7 @@ class Products(ABC):
         """
         purchase_year = datetime.datetime.today().year
         purchase_month = datetime.datetime.today().month
-        index = str(len(Products.all_products) + 100)
+        index = str(Products.all_products.index(self) + 101)
         self.barcode = str(purchase_year)+str(purchase_month).zfill(2)+ self.category_code + index
         # barcode: 202307E102
 
@@ -62,6 +69,9 @@ class Products(ABC):
     
     @staticmethod
     def showInventory():
+        if len(Products.all_products) == 0:
+            print("Your inventory is empty!")
+            return False
         print("SrNo\t\tItem Name")
         for item in Products.all_products:
             print(f"{item.barcode}\t{item.name}")

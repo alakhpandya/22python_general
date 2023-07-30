@@ -1,4 +1,4 @@
-"""
+""" 
 generate bill
 """
 # DRY: Do not Repeat Yourself
@@ -41,23 +41,33 @@ while True:
         lookup[item_type]()
 
     elif op == 2:
-        pass
+        index = Products.showInventory()
+        if not index:
+            print("Please add a product first!")
+        else:
+            removed_product = Products.all_products[index]
+            Products.all_products[index] = None
+            print(f"{removed_product.name} has been successfully removed!\n")
 
     elif op == 3:
         index = Products.showInventory()
-        Products.all_products[index].show_details()
+        if not index:
+            print("Please add a product first!")
+        else:
+            Products.all_products[index].show_details()
 
     elif op == 4:
         index = Products.showInventory()
-        Products.all_products[index].editDetails()
+        if not index:
+            print("Please add a product first!")
+        else:
+            Products.all_products[index].editDetails()
 
     elif op == 5:
-        pass
+        Products.showInventory()
 
     elif op == 9:
         break
 
     else:
         print("Invalid operation, please try again...")
-
-# Next Class: Abstraction, Encapsulation, Polymorphism & remaining menu options
