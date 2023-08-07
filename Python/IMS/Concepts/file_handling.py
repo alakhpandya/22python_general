@@ -53,18 +53,40 @@ f.close()
 f = open('entire file path including its name with extension', 'Mode1Mode2')
 f.close()
 
-Mode 1  Name    Description                                             Mode 2  Name
-r       Read    Opens the file for reading only                         t       Text            Default Mode
-                Cursor is placed at the begining of the file.
+Mode 1  Name            Description                                             Mode 2  Name
+r       Read            Opens the file for reading only                         t       Text            Default Mode
+                        Cursor is placed at the begining of the file.
+                        Does not erase the content of the file
+                        Raises FileNotFoundError if file does not exist
 
-w       Write   Opens the file for writing only                         b       Binary
+w       Write           Opens the file for writing only                         b       Binary
+                        Erases entire content of the file at the time of opening
+                        Creates file if it does not exist
+                        Cursor is placed at the begining of the file.
 
-a       Append  Opens the file for writing only
-x       
-r+      Read+
-w+      Write+
-a+      Append+
+a       Append          Opens the file for writing only
+                        Does not erase the content of the file
+                        Creates file if it does not exist
+                        Cursor is placed at the end of the file.
 
+x       Exclusively     Creates the file and opens it for writing if it does not exist
+        Create          Raises FileExistsError if the file already exists
+                        Cursor is placed at the end of the file.
+
+r+      Read+           Opens the file for reading and writing both
+                        Cursor is placed at the begining of the file.
+                        Does not erase the content of the file
+                        Raises FileNotFoundError if file does not exist
+
+w+      Write+          Opens the file for reading and writing both
+                        Erases entire content of the file at the time of opening
+                        Creates file if it does not exist
+                        Cursor is placed at the begining of the file.
+
+a+      Append+         Opens the file for reading and writing both
+                        Does not erase the content of the file
+                        Creates file if it does not exist
+                        Cursor is placed at the end of the file.
 """
 
 # f = open("D:\\ourBatch.txt")        OR
@@ -81,3 +103,5 @@ f = open("D:\\ourBatch.txt", "rt")
 f.close()
 
 # Next Class: Remaining concepts of file handling, Resolving '\t' problem, back to project
+
+# Comma Seperated Values: csv
