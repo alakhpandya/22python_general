@@ -13,16 +13,17 @@ class Electronics(Products):
 
 
     def show_details(self):
-        print(f"------------- Details of {self.name} -------------")
-        print("Category:", self.category)
+        # print(f"------------- Details of {self.name} -------------")
+        # print("Category:", self.category)
         # print("Cost price:", self.__cost_price)     # private variable
-        print("Cost price:", self._Products__cost_price)     # name mangling
-        print("MRP:", self._mrp)                    # protected variable
-        print("Stock:", self.quantity)
-        print("Barcode:", self.barcode)
-        print("Power:", self.power_option)
+        # print("Cost price:", self._Products__cost_price)     # name mangling
+        # print("MRP:", self._mrp)                    # protected variable
+        # print("Stock:", self.quantity)
+        # print("Barcode:", self.barcode)
         
-        # super().show_details()
+        super().show_details()
+        print("Power:", self.power_option)
+
         print("-"*55)
         print()
 

@@ -11,7 +11,6 @@ class Cloths(Products):
     def show_details(self):
         super().show_details()
         print("Size:", self.size)
-        
         print("-"*55)
         print()
 

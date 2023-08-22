@@ -61,5 +61,3 @@ finally:
     # This will be executed no matter what
     print("Feel free to reach out to us for any issues...")
 """
-
-# Next Class: Resource Management, back to project

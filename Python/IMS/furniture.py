@@ -14,7 +14,7 @@ class Furniture(Products):
         
         print("-"*55)
         print()
-
+ 
     @classmethod
     def addNewItem(cls):
         name, cost_price, mrp, quantity = super().addNewItem()

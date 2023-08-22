@@ -71,3 +71,6 @@ while True:
 
     else:
         print("Invalid operation, please try again...")
+
+
+# Next Lecture: Saving all the products into a file (repr)

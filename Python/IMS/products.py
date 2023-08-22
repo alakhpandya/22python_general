@@ -48,14 +48,14 @@ class Products(ABC):
         self.barcode = str(purchase_year)+str(purchase_month).zfill(2)+ self.category_code + index
         # barcode: 202307E102
 
-    # @abstractmethod
-    # def show_details(self):
-    #     print(f"------------- Details of {self.name} -------------")
-    #     print("Category:", self.category)
-    #     print("Cost price:", self.__cost_price)     # private variable
-    #     print("MRP:", self._mrp)                    # protected variable
-    #     print("Stock:", self.quantity)
-    #     print("Barcode:", self.barcode)
+    @abstractmethod
+    def show_details(self):
+        print(f"------------- Details of {self.name} -------------")
+        print("Category:", self.category)
+        print("Cost price:", self.__cost_price)     # private variable
+        print("MRP:", self._mrp)                    # protected variable
+        print("Stock:", self.quantity)
+        print("Barcode:", self.barcode)
 
     @staticmethod
     @abstractmethod
