@@ -1,3 +1,4 @@
+import csv
 import datetime
 from abc import ABC, abstractmethod      # abc: abstract base classes, ABC: Abstract Base Class
 """
@@ -105,6 +106,29 @@ class Products(ABC):
 
         if year != "":
             self.barcode = year + self.barcode[4 : ]
+
+
+    @staticmethod
+    def writeToCSV():
+        with open('database.csv', 'w') as f:
+            for obj in Products.all_products:
+                line = ""
+                # for key, value in obj.__dict__.items():
+                    # line = line + f"({key}, {value})" + ","
+                for property in obj.__dict__.items():
+                    line = line + str(property) + ","
+                line = line[0 : len(line)-1]
+                line = f"(category_code, {obj.category_code})," + line
+                f.write(line + "\n")
+
+    @staticmethod
+    def loadFromCSV():
+        with open('database.csv', 'r') as f:
+            raw_objects = csv.reader(f)
+            # print(raw_objects)
+            for line in raw_objects:
+                print(line)
+
 
 if __name__ == '__main__' :
     # p1 = Products("1234", 35.5, 50.5, 10)
