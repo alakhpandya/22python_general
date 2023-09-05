@@ -32,8 +32,14 @@ class Products(ABC):
             Products.all_products.append(self)
         self.generateBarcode()
 
+    # getter
+    @property
+    def cost(self):
+        return self._Products__cost_price
 
-
+    @cost.setter
+    def cost(self, new_cost):
+        self._Products__cost_price = new_cost
 
     def generateBarcode(self):
         # Format: YYYYMMCXXXX
@@ -53,7 +59,7 @@ class Products(ABC):
     def show_details(self):
         print(f"------------- Details of {self.name} -------------")
         print("Category:", self.category)
-        print("Cost price:", self.__cost_price)     # private variable
+        print("Cost price:", self.cost)     # private variable
         print("MRP:", self._mrp)                    # protected variable
         print("Stock:", self.quantity)
         print("Barcode:", self.barcode)
@@ -90,11 +96,11 @@ class Products(ABC):
         if category != "": 
             print("Sorry, cannot change category from here. You need to delete this object and create a new one in that category.")
         
-        cost_price = input(f"Cost price\t{self.cost_price}:\t".expandtabs(20))
-        if cost_price != "": self.cost_price = float(cost_price)
+        cost_price = input(f"Cost price\t{self.cost}:\t".expandtabs(20))
+        if cost_price != "": self.cost = float(cost_price)
 
         mrp = input(f"MRP\t{self.mrp}:\t".expandtabs(20))
-        if mrp != "": self.mrp = float(mrp)
+        if mrp != "": self._mrp = float(mrp)
 
         quantity = input(f"Stock\t{self.quantity}:\t".expandtabs(20))
         if quantity != "": self.quantity = int(quantity)
@@ -112,23 +118,9 @@ class Products(ABC):
     def writeToCSV():
         with open('database.csv', 'w') as f:
             for obj in Products.all_products:
-                line = ""
-                # for key, value in obj.__dict__.items():
-                    # line = line + f"({key}, {value})" + ","
-                for property in obj.__dict__.items():
-                    line = line + str(property) + ","
-                line = line[0 : len(line)-1]
-                line = f"(category_code, {obj.category_code})," + line
-                f.write(line + "\n")
-
-    @staticmethod
-    def loadFromCSV():
-        with open('database.csv', 'r') as f:
-            raw_objects = csv.reader(f)
-            # print(raw_objects)
-            for line in raw_objects:
-                print(line)
-
+                temp = obj.__dict__
+                temp['category_code'] = obj.category_code
+                f.write(str(temp) + "\n")
 
 if __name__ == '__main__' :
     # p1 = Products("1234", 35.5, 50.5, 10)

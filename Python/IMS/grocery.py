@@ -20,3 +20,7 @@ class Grocery(Products):
         name, cost_price, mrp, quantity = super().addNewItem()
         exp_date = input("Expiry date: ")
         return cls(name, cost_price, mrp, quantity, exp_date)
+
+    @classmethod
+    def createItem(cls, name, cost_price, mrp, quantity, exp_date):
+        return cls(name, cost_price, mrp, quantity, exp_date)

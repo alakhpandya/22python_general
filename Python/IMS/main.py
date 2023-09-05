@@ -9,14 +9,36 @@ from furniture import Furniture
 from toys import Toys
 from cloths import Cloths
 
-e1 = Electronics("Asus TUF F15", 56000.0, 86000, 10, "Rechargable Battery")
+def loadFromCSV():
+    with open('database.csv', 'r') as f:
+        data = f.readlines()
+    for raw_obj in data:
+        raw_obj = raw_obj[1 : -2].split(",")
+        temp = {}
+        for item in raw_obj:
+            key, value = item.split(":")
+            temp[key] = value[1:]
+        # print(temp)
+        name = temp["'name'"]
+        cost_price = float(temp[" '_Products__cost_price'"])
+        mrp = float(temp[" '_mrp'"])
+        quantity = int(temp[" 'quantity'"])
+        category_code = temp[" 'category_code'"]
+        if category_code == "'E'":
+            power_option = temp[" 'power_option'"]
+            Electronics.createItem(name, cost_price, mrp, quantity, power_option)
+        elif category_code == "'G'":
+            exp_date = temp[" 'exp_date'"]
+            Grocery.createItem(name, cost_price, mrp, quantity, exp_date)
+
+
+# e1 = Electronics("Asus TUF F15", 56000.0, 86000, 10, "Rechargable Battery")
 # e1.show_details()
 
-g1 = Grocery("Kissan Ketchup", 90.0, 135, 50, "12/24")
+# g1 = Grocery("Kissan Ketchup", 90.0, 135, 50, "12/24")
 # g1.show_details()
-"""
+loadFromCSV()
 while True:
-    Products.loadFromCSV()
     print("Enter:\n1 to add new product to inventory")
     print("2 to delete a product")
     print("3 to view a product details")
@@ -58,11 +80,12 @@ while True:
             Products.all_products[index].show_details()
 
     elif op == 4:
-        index = Products.showInventory()
+        print(Products.all_products)
+        index = Products.showInventory() + 1
         if not index:
             print("Please add a product first!")
         else:
-            Products.all_products[index].editDetails()
+            Products.all_products[index - 1].editDetails()
 
     elif op == 5:
         Products.showInventory()
@@ -73,7 +96,3 @@ while True:
 
     else:
         print("Invalid operation, please try again...")
-
-"""
-Products.loadFromCSV()
-# Products.writeToCSV()

@@ -13,7 +13,7 @@ class Electronics(Products):
 
 
     def show_details(self):
-        # print(f"------------- Details of {self.name} -------------")
+        print(f"------------- Details of {self.name} -------------")
         # print("Category:", self.category)
         # print("Cost price:", self.__cost_price)     # private variable
         # print("Cost price:", self._Products__cost_price)     # name mangling
@@ -26,7 +26,7 @@ class Electronics(Products):
 
         print("-"*55)
         print()
-
+    
     # getter:
     @property
     def schemes(self):
@@ -47,6 +47,10 @@ class Electronics(Products):
         super().editDetails()
         power = input(f"Power\t{self.power_option}:\t")
         if power != "": self.power_option = power
+
+    @classmethod
+    def createItem(cls, name, cost_price, mrp, quantity, power_option):
+        return cls(name, cost_price, mrp, quantity, power_option)
 
 
 if __name__ == "__main__":
